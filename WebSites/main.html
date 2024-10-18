@@ -1,46 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>AboutFemailPants</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Райська насолода</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        nav {
+            background-color: #333;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background-image: url('your-image-url.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .service-box {
+            width: 30%;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            height: 300px; /* Висота для блоку */
+        }
+
+        .service-box img {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            transition: bottom 0.3s ease;
+        }
+
+
+        .service-box:hover img {
+            bottom: 0;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-box h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            font-size: 16px;
+        }
+
+        /* Стиль для зображення перукарні */
+        .barbershop-image {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-<h1><center>Види трусов</center></h1>
-<h3>Введение</h3>
-<p><b>Выбор нижнего белья</b> – <i>это не только вопрос комфорта, но и эстетики, а также здоровья. Трусы, как неотъемлемая часть женского гардероба, представлены в широком разнообразии моделей, каждая из которых имеет свои особенности и предназначение. В данном реферате мы рассмотрим основные виды женских трусов, их характеристики и критерии выбора</i>.</p>
-<h3>Классификация женских трусов</h3>
-<p>Женские трусы можно классифицировать по нескольким параметрам:</p>
-<h4>Покрытие:</h4>
-<lu>
-    <li><b>Слипы:</b> Классическая модель, полностью закрывающая ягодицы. Обеспечивает максимальный комфорт и поддержку.</li><img src="data:image/jpeg;base64,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">
-    <li><b>Бикини:</b> Отличаются более открытой формой, хорошо подходят для летнего периода и под обтягивающую одежду.</li><img src='https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTg59qGttgs6LFMlYoAu6pxC84EVrgDEoFAV0GM3b4RCbI-KAAvdHJTOLlGmFDw1Y4FXA4ZuWv1PyXPjJQKrmciEXPdHJGx2aQfRFsJIAox7Y9pM-k9kgQkQBa9-g0GDanPHbCD6-s&usqp=CAc'>
-    <li><b>Бразилиана:</b> Компромисс между слипами и бикини. Частично открывают ягодицы, создавая более сексуальный образ.</li><img src='data:image/webp;base64,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'>
-    <li><b>Стринги:</b> Самая открытая модель, практически не оставляет следов под одеждой.</li><img src='data:image/jpeg;base64,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'>
-    <li><b>Танга:</b> Похожи на стринги, но имеют более широкую переднюю часть.</li><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu_3B7yXRhLxH0B6WB2koZPiCpJ2eLW1U8wQ&s'>
-</lu>
-<h4>Посадка:</h4>
-<lu>
-    <li><b>Высокая посадка:</b> Закрывают живот, обеспечивают дополнительную поддержку.</li>
-    <li><b>Средняя посадка:</b> Самый распространенный вариант, подходит для большинства типов фигуры.</li>
-    <li><b>Низкая посадка:</b> Открывают живот, визуально удлиняют ноги.</li>
-</lu>
-<h4>Материал:</h4>
-<lu>
-    <li><b>Бавовна:</b> ЗНатуральный материал, хорошо пропускает воздух, гигиеничен.</li>
-    <li><b>Микрофибра:</b> Синтетический материал, быстро сохнет, эластичен.</li>
-    <li><b>Шелк:</b> Роскошный материал, приятен к телу, но требует деликатного ухода.</li>
-    <li><b>Лакра:</b> Комбинированный материал, сочетающий в себе преимущества натуральных и синтетических волокон.</li>
-</lu>
-<h3>Критерии выбора трусов</h3>
-<lu>
-    <li><b>Комфорт:</b> Трусы должны быть мягкими, не натирать и не сдавливать.</li>
-    <li><b>Материал:</b> Выбирайте материал в зависимости от времени года и типа активности..</li>
-    <li><b>Посадка:</b> Подбирайте посадку в соответствии с особенностями фигуры и предпочтениями.</li>
-    <li><b>Цель:</b> Для повседневной носки лучше выбирать модели из натуральных материалов, для особых случаев подойдут более изысканные варианты.</li>
-</lu>
-<h3>Влияние выбора трусов на здоровье</h3>
-<p><b>Неправильно подобранные трусы</b> могут вызывать дискомфорт, раздражение кожи, а в некоторых случаях даже способствовать развитию <b>различных заболеваний</b>. Поэтому важно выбирать белье, которое <b>соответствует вашим индивидуальным особенностям и обеспечивает максимальный комфорт.</b></p>
-<h3>Заключение</h3>
-<p>Ассортимент женских трусов настолько широк, что каждая женщина сможет найти для себя идеальный вариант. При выборе нижнего белья обращайте внимание на качество материалов, посадку, дизайн и свои индивидуальные предпочтения. Правильно подобранные трусы не только подчеркнут вашу красоту, но и обеспечат комфорт и здоровье.</p>
+    <header>
+        <h1>Райська насолода</h1>
+    </header>
+
+    <nav>
+        <a href="#about">Про нас</a>
+        <a href="#services">Послуги</a>
+        <a href="#contact">Контакти</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Завжди Стильні Зачіски</h2>
+    </section>
+
+    <!-- Секція "Наші Послуги" -->
+    <section class="content" id="services">
+        <img src="barbershop.jpg" alt="Фото перукарні" class="barbershop-image">
+        <h3>Наші Послуги</h3>
+        <!-- Зображення перукарні -->
+        <div class="services">
+            <div class="service-box">
+                <h4>Стрижка</h4>
+                <p>Класичні та сучасні стрижки для будь-якого віку та стилю.</p>
+                <img src="haircut.jpg" alt="Приклад стрижки">
+            </div>
+            <div class="service-box">
+                <h4>Фарбування</h4>
+                <p>Професійне фарбування з використанням якісної косметики.</p>
+                <img src="coloring.jpg" alt="Приклад фарбування">
+            </div>
+            <div class="service-box">
+                <h4>Укладання</h4>
+                <p>Ідеальні укладки для будь-якої події – від повсякденних до весільних.</p>
+                <img src="styling.jpg" alt="Приклад укладки">
+            </div>
+        </div>
+    </section>
+
+    <section class="content" id="about">
+        <h3>Про Нас</h3>
+        <p>Ми - команда професіоналів, які допоможуть вам створити ідеальний образ. Стрижка, фарбування, укладання – все це та багато іншого ви знайдете у нашій перукарні.</p>
+    </section>
+
+    <footer id="contact">
+        <p>Контакти: +380 123 456 789 | вулиця Краси, 10, Київ</p>
+    </footer>
 </body>
 </html>
