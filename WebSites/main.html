@@ -137,6 +137,15 @@
     </style>
 </head>
 <body>
+
+<form action="/result" method="get">
+    <select name="product">
+        <option value="1"> 1 </option>
+        <option value="2"> 2 </option>
+        <option value="3"> 3 </option>
+    </select>
+</form>
+
     <header>
         <h1>Райська насолода</h1>
     </header>
@@ -177,10 +186,15 @@
     <section class="content" id="about">
         <h3>Про Нас</h3>
         <p>Ми - команда професіоналів, які допоможуть вам створити ідеальний образ. Стрижка, фарбування, укладання – все це та багато іншого ви знайдете у нашій перукарні.</p>
+
+        <div class="cta">
+            <button id="openModal" class="btn">Записатися на прийом</button>
+        </div>
     </section>
 
     <footer id="contact">
         <p>Контакти: +380 123 456 789 | вулиця Краси, 10, Київ</p>
     </footer>
+
 </body>
 </html>
