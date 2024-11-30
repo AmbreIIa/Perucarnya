@@ -6,11 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Райська насолода</title>
     <style>
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
+        }
+
+        .appointment-form {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+            max-width: 300px;
+        }
+        
+        .button-container {
+            text-align: center;
+        }
+
+        .appointment-form label {
+            font-size: 16px;
+        }
+
+        .appointment-form input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .appointment-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .appointment-button:hover {
+            background-color: #0056b3;
         }
 
         header {
@@ -161,7 +202,6 @@
     </section>
 
     <section class="content" id="services">
-        <img src="barbershop.jpg" alt="Фото перукарні" class="barbershop-image">
         <h3>Наші Послуги</h3>
 
         <div class="services">
@@ -187,14 +227,24 @@
         <h3>Про Нас</h3>
         <p>Ми - команда професіоналів, які допоможуть вам створити ідеальний образ. Стрижка, фарбування, укладання – все це та багато іншого ви знайдете у нашій перукарні.</p>
 
-        <div class="cta">
-            <button id="openModal" class="btn">Записатися на прийом</button>
-        </div>
+
     </section>
 
     <footer id="contact">
         <p>Контакти: +380 123 456 789 | вулиця Краси, 10, Київ</p>
+        <form action="/submit-appointment" method="post" class="appointment-form">
+        <label for="name">Ваше ім'я:</label><br>
+        <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я" required><br><br>
+        <label for="phone">Номер телефону:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="+380123456789" required><br><br>
+        <label for="date">Дата запису:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+        <div class="button-container">
+            <button type="submit" class="appointment-button">Записатися</button>
+        </div>
+    </form>
     </footer>
+
 
 </body>
 </html>
