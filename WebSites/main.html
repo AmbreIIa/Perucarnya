@@ -6,52 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Райська насолода</title>
     <style>
-
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
-        }
-
-        .appointment-form {
-            margin-top: 20px;
-            text-align: left;
-            display: inline-block;
-            max-width: 300px;
-        }
-        
-        .button-container {
-            text-align: center;
-        }
-
-        .appointment-form label {
-            font-size: 16px;
-        }
-
-        .appointment-form input {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .appointment-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .appointment-button:hover {
-            background-color: #0056b3;
         }
 
         header {
@@ -164,6 +123,52 @@
             margin-bottom: 20px;
         }
 
+        .appointment-form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 50vh;
+        }
+
+        .appointment-form {
+            margin-top: 20px;
+            text-align: left;
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .appointment-form label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .appointment-form input,
+        .appointment-form select,
+        .appointment-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .appointment-form button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        .appointment-form button:hover {
+            background-color: #555;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -178,15 +183,6 @@
     </style>
 </head>
 <body>
-
-<form action="/result" method="get">
-    <select name="product">
-        <option value="1"> 1 </option>
-        <option value="2"> 2 </option>
-        <option value="3"> 3 </option>
-    </select>
-</form>
-
     <header>
         <h1>Райська насолода</h1>
     </header>
@@ -198,7 +194,7 @@
     </nav>
 
     <section class="hero">
-        <!-- You can add a heading or any other content here -->
+
     </section>
 
     <section class="content" id="services">
@@ -226,25 +222,47 @@
     <section class="content" id="about">
         <h3>Про Нас</h3>
         <p>Ми - команда професіоналів, які допоможуть вам створити ідеальний образ. Стрижка, фарбування, укладання – все це та багато іншого ви знайдете у нашій перукарні.</p>
-
-
     </section>
 
-    <footer id="contact">
+    <section id="contact" class="content">
+    <h3>Запис на прийом</h3>
+    <div class="appointment-form-container">
+        <form class="appointment-form" action="/submit-appointment" method="post">
+            <label for="name">Ім'я</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="specialist">Вибір спеціаліста</label>
+            <select id="specialist" name="specialist" required>
+                <option value="" disabled selected>Оберіть спеціаліста</option>
+                <option value="master1">Майстер Ольга</option>
+                <option value="master2">Майстер Іван</option>
+                <option value="master3">Майстер Анна</option>
+            </select>
+
+            <label for="time">Час запису</label>
+            <select id="time" name="time" required>
+                <option value="" disabled selected>Оберіть час</option>
+                <option value="9:00">9:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+            </select>
+
+            <button type="submit">Записатись</button>
+        </form>
+    </div>
+</section>
+
+    <footer>
         <p>Контакти: +380 123 456 789 | вулиця Краси, 10, Київ</p>
-        <form action="/submit-appointment" method="post" class="appointment-form">
-        <label for="name">Ваше ім'я:</label><br>
-        <input type="text" id="name" name="name" placeholder="Введіть ваше ім'я" required><br><br>
-        <label for="phone">Номер телефону:</label><br>
-        <input type="tel" id="phone" name="phone" placeholder="+380123456789" required><br><br>
-        <label for="date">Дата запису:</label><br>
-        <input type="date" id="date" name="date" required><br><br>
-        <div class="button-container">
-            <button type="submit" class="appointment-button">Записатися</button>
-        </div>
-    </form>
     </footer>
-
-
 </body>
 </html>
