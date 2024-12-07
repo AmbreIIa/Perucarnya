@@ -27,4 +27,4 @@ def result():
 
     return render_template('product.html', products=cards)
 
-app.run(debag=True)
+app.run(debug=True)
