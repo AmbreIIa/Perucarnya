@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -90,31 +90,59 @@
             overflow: hidden;
             transition: transform 0.3s ease;
             height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-in-out forwards;
+            animation-delay: 0.2s;
         }
 
-        .service-box img {
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-            width: 100%;
-            transition: bottom 0.3s ease;
-        }
-
-        .service-box:hover img {
-            bottom: 0;
-        }
-
-        .service-box:hover {
-            transform: translateY(-10px);
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .service-box h4 {
             font-size: 24px;
             margin-bottom: 10px;
+            text-align: center;
         }
 
         .service-box p {
             font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .service-box a {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-box:hover a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-box:hover {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .barbershop-image {
@@ -194,7 +222,6 @@
     </nav>
 
     <section class="hero">
-
     </section>
 
     <section class="content" id="services">
@@ -204,17 +231,17 @@
             <div class="service-box">
                 <h4>Стрижка</h4>
                 <p>Класичні та сучасні стрижки для будь-якого віку та стилю.</p>
-                <img src="haircut.jpg" alt="Приклад стрижки">
+                <a href="{{url_for('strizhkamasters')}}">Записатись до майстра</a>
             </div>
             <div class="service-box">
                 <h4>Фарбування</h4>
                 <p>Професійне фарбування з використанням якісної косметики.</p>
-                <img src="coloring.jpg" alt="Приклад фарбування">
+                <a href="{{url_for('farbmasters')}}">Записатись до майстра</a>
             </div>
             <div class="service-box">
                 <h4>Укладання</h4>
                 <p>Ідеальні укладки для будь-якої події – від повсякденних до весільних.</p>
-                <img src="styling.jpg" alt="Приклад укладки">
+                <a href="{{url_for('ukladmasters')}}">Записатись до майстра</a>
             </div>
         </div>
     </section>
@@ -225,41 +252,33 @@
     </section>
 
     <section id="contact" class="content">
-    <h3>Запис на прийом</h3>
-    <div class="appointment-form-container">
-        <form class="appointment-form" action="/submit-appointment" method="post">
-            <label for="name">Ім'я</label>
-            <input type="text" id="name" name="name" required>
+        <h3>Запис на прийом</h3>
+        <div class="appointment-form-container">
+            <form class="appointment-form" action="/submit-appointment" method="post">
+                <label for="name">Ім'я</label>
+                <input type="text" id="name" name="name" required>
 
-            <label for="phone">Телефон</label>
-            <input type="tel" id="phone" name="phone" required>
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" required>
 
-            <label for="specialist">Вибір спеціаліста</label>
-            <select id="specialist" name="specialist" required>
-                <option value="" disabled selected>Оберіть спеціаліста</option>
-                <option value="master1">Майстер Ольга</option>
-                <option value="master2">Майстер Іван</option>
-                <option value="master3">Майстер Анна</option>
-            </select>
+                <label for="time">Час запису</label>
+                <select id="time" name="time" required>
+                    <option value="" disabled selected>Оберіть час</option>
+                    <option value="9:00">9:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
 
-            <label for="time">Час запису</label>
-            <select id="time" name="time" required>
-                <option value="" disabled selected>Оберіть час</option>
-                <option value="9:00">9:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-            </select>
-
-            <button type="submit">Записатись</button>
-        </form>
-    </div>
-</section>
+                <button type="submit">Записатись</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <p>Контакти: +380 123 456 789 | вулиця Краси, 10, Київ</p>

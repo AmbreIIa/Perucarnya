@@ -3,6 +3,11 @@ import sqlite3
 connection = sqlite3.connect("database.sqlite")
 cursor = connection.cursor()
 
+cursor.execute("DROP TABLE IF EXISTS products")
+cursor.execute("DROP TABLE IF EXISTS strizhka")
+cursor.execute("DROP TABLE IF EXISTS farb")
+cursor.execute("DROP TABLE IF EXISTS ukladka")
+
 request = ("CREATE TABLE IF NOT EXISTS products"
            "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
            "name VARCHAR(255),"
@@ -16,49 +21,53 @@ insert_request = ("INSERT INTO products"
 
 cursor.execute(insert_request, ("стрижка", "Класичні та сучасні стрижки для будь-якого віку та стилю.", 270))
 cursor.execute(insert_request, ("фарбування", "Професійне фарбування з використанням якісної косметики.", 250))
-cursor.execute(insert_request, ("укладання", "Ідеальні укладки для будь-якої події – від повсякденних до весільних.", 150))
+cursor.execute(insert_request, ("укладання", "Ідеальні укладки для будь-якої події – від повсякденних до весільних.", 250))
 
 request = ("CREATE TABLE IF NOT EXISTS strizhka"
            "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
            "name VARCHAR(255),"
+           "age INTEGER,"
            "description VARCHAR(255))")
 
 cursor.execute(request)
 
 insert_request = ("INSERT INTO strizhka"
-                  "(name, description) VALUES(?, ?)")
+                  "(name, age, description) VALUES(?, ?, ?)")
 
-cursor.execute(insert_request, ("Ольга 23 роки", "Стаж роботи 2 роки"))
-cursor.execute(insert_request, ("Іван 30 років", "Стаж роботи 5 років"))
-cursor.execute(insert_request, ("Анна 25 років", "Стаж роботи 4 роки"))
+cursor.execute(insert_request, ("Ольга", 23, "Стаж роботи 2 роки"))
+cursor.execute(insert_request, ("Іван", 30, "Стаж роботи 5 років"))
+cursor.execute(insert_request, ("Анна ", 25, "Стаж роботи 4 роки"))
+cursor.execute(insert_request, ("Дмитро", 18, "Стаж роботи 1 рік"))
 
 request = ("CREATE TABLE IF NOT EXISTS ukladka"
            "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
            "name VARCHAR(255),"
+           "age INTEGER,"
            "description VARCHAR(255))")
 
 cursor.execute(request)
 
 insert_request = ("INSERT INTO ukladka"
-                  "(name, description) VALUES(?, ?)")
+                  "(name, age, description) VALUES(?, ?, ?)")
 
-cursor.execute(insert_request, ("Олександр 28 років", "Стаж роботи 6 років"))
-cursor.execute(insert_request, ("Олександра 22 роки", "Стаж роботи 1 рік"))
-cursor.execute(insert_request, ("Василь 25 років", "Стаж роботи 4 роки"))
+cursor.execute(insert_request, ("Олександр", 28, "Стаж роботи 6 років"))
+cursor.execute(insert_request, ("Олександра ", 22, "Стаж роботи 1 рік"))
+cursor.execute(insert_request, ("Василь ", 25, "Стаж роботи 4 роки"))
 
 request = ("CREATE TABLE IF NOT EXISTS farb"
            "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
            "name VARCHAR(255),"
+           "age INTEGER,"
            "description VARCHAR(255))")
 
 cursor.execute(request)
 
 insert_request = ("INSERT INTO farb"
-                  "(name, description) VALUES(?, ?)")
+                  "(name, age, description) VALUES(?, ?, ?)")
 
-cursor.execute(insert_request, ("Марія 23 роки", "Стаж роботи 2 роки"))
-cursor.execute(insert_request, ("Володимир 30 років", "Стаж роботи 5 років"))
-cursor.execute(insert_request, ("Анна 25 років", "Стаж роботи 4 роки"))
+cursor.execute(insert_request, ("Марк ", 28, "Стаж роботи 7 років"))
+cursor.execute(insert_request, ("Владислав", 40, "Стаж роботи 12 років"))
+cursor.execute(insert_request, ("Артур ", 33, "Стаж роботи 9 років"))
 
 text = cursor.execute("SELECT * FROM products")
 print(text.fetchall())

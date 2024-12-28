@@ -1,0 +1,12 @@
+{% extends "masters_tmpl.html" %}
+
+{% block masters %}
+    {% for master in masters %}
+        <tr>
+            <td>{{master[1]}}</td>
+            <td>{{master[2]}} років</td>
+            <td>{{master[3]}}</td>
+            <td><a href="" class="button">Записатись</a></td>
+        </tr>
+    {% endfor %}
+{% endblock %}

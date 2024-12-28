@@ -22,20 +22,31 @@ def make_product_card(product):
 def index():
     return render_template('main.html')
 
+@app.route('/strizhkamasters')
+def strizhkamasters():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    response = cursor.execute("SELECT * FROM strizhka")
+    masters = response.fetchall()
+    return render_template("masters.html", masters=masters)
 
-@app.route("/result")
-def result():
-    connection = get_db_connection()
-    cursor = connection.cursor()
 
-    products = cursor.execute("SELECT * FROM products").fetchall()
-    connection.close()
-1
-    cards = ""
-    for product in products:
-        cards += make_product_card(product)
+@app.route('/farbmasters')
+def farbmasters():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    response = cursor.execute("SELECT * FROM farb")
+    masters = response.fetchall()
+    return render_template("masters.html", masters=masters)
 
-    return render_template('product.html', products=cards)
+
+@app.route('/ukladmasters')
+def ukladmasters():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    response = cursor.execute("SELECT * FROM ukladka")
+    masters = response.fetchall()
+    return render_template("masters.html", masters=masters)
 
 
 if __name__ == "__main__":
