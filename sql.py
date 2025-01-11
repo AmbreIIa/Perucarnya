@@ -34,10 +34,10 @@ cursor.execute(request)
 insert_request = ("INSERT INTO strizhka"
                   "(name, age, description) VALUES(?, ?, ?)")
 
-cursor.execute(insert_request, ("Ольга", 23, "Стаж роботи 2 роки"))
-cursor.execute(insert_request, ("Іван", 30, "Стаж роботи 5 років"))
-cursor.execute(insert_request, ("Анна ", 25, "Стаж роботи 4 роки"))
-cursor.execute(insert_request, ("Дмитро", 18, "Стаж роботи 1 рік"))
+cursor.execute(insert_request, ("Ольга", 23, " 2 роки"))
+cursor.execute(insert_request, ("Іван", 30, " 5 років"))
+cursor.execute(insert_request, ("Анна ", 25, " 4 роки"))
+cursor.execute(insert_request, ("Дмитро", 18, " 1 рік"))
 
 request = ("CREATE TABLE IF NOT EXISTS ukladka"
            "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -50,9 +50,9 @@ cursor.execute(request)
 insert_request = ("INSERT INTO ukladka"
                   "(name, age, description) VALUES(?, ?, ?)")
 
-cursor.execute(insert_request, ("Олександр", 28, "Стаж роботи 6 років"))
-cursor.execute(insert_request, ("Олександра ", 22, "Стаж роботи 1 рік"))
-cursor.execute(insert_request, ("Василь ", 25, "Стаж роботи 4 роки"))
+cursor.execute(insert_request, ("Олександр", 28, " 6 років"))
+cursor.execute(insert_request, ("Олександра ", 22, " 1 рік"))
+cursor.execute(insert_request, ("Василь ", 25, " 4 роки"))
 
 request = ("CREATE TABLE IF NOT EXISTS farb"
            "(id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -65,9 +65,9 @@ cursor.execute(request)
 insert_request = ("INSERT INTO farb"
                   "(name, age, description) VALUES(?, ?, ?)")
 
-cursor.execute(insert_request, ("Марк ", 28, "Стаж роботи 7 років"))
-cursor.execute(insert_request, ("Владислав", 40, "Стаж роботи 12 років"))
-cursor.execute(insert_request, ("Артур ", 33, "Стаж роботи 9 років"))
+cursor.execute(insert_request, ("Марк ", 28, "7 років"))
+cursor.execute(insert_request, ("Владислав", 40, " 12 років"))
+cursor.execute(insert_request, ("Артур ", 33, " 9 років"))
 
 text = cursor.execute("SELECT * FROM products")
 print(text.fetchall())
