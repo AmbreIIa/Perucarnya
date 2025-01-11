@@ -2,11 +2,12 @@
 
 {% block masters %}
     {% for master in masters %}
-        <tr>
-            <td>{{master[1]}}</td>
-            <td>{{master[2]}} років</td>
-            <td>{{master[3]}}</td>
-            <td><a href="" class="button">Записатись</a></td>
-        </tr>
+        <div class="master-card">
+            <h2>{{master[1]}}</h2>
+            <p><strong>Вік:</strong>{{master[2]}} років </p>
+            <p><strong>Стаж роботи:</strong>{{master[3]}}</p>
+            <a href="#" class="button">Записатись</a>
+        </div>
     {% endfor %}
 {% endblock %}
+
