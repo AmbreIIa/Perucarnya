@@ -43,17 +43,17 @@
         }
 
         .hero {
-            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+            background-image: url('your-image-url.jpg');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 600px; /* Increased height for better visual impact */
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
         }
-
         .hero h2 {
             font-size: 48px;
             margin: 0;
@@ -222,6 +222,7 @@
     </nav>
 
     <section class="hero">
+        <h2>Відчуйте себе прекрасно</h2>
     </section>
 
     <section class="content" id="services">
@@ -246,38 +247,10 @@
         </div>
     </section>
 
+
     <section class="content" id="about">
         <h3>Про Нас</h3>
         <p>Ми - команда професіоналів, які допоможуть вам створити ідеальний образ. Стрижка, фарбування, укладання – все це та багато іншого ви знайдете у нашій перукарні.</p>
-    </section>
-
-    <section id="contact" class="content">
-        <h3>Запис на прийом</h3>
-        <div class="appointment-form-container">
-            <form class="appointment-form" action="/submit-appointment" method="post">
-                <label for="name">Ім'я</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="phone">Телефон</label>
-                <input type="tel" id="phone" name="phone" required>
-
-                <label for="time">Час запису</label>
-                <select id="time" name="time" required>
-                    <option value="" disabled selected>Оберіть час</option>
-                    <option value="9:00">9:00</option>
-                    <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="12:00">12:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="16:00">16:00</option>
-                    <option value="17:00">17:00</option>
-                </select>
-
-                <button type="submit">Записатись</button>
-            </form>
-        </div>
     </section>
 
     <footer>
